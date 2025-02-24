@@ -6,8 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 
- public class Movement
+ public class Movement : Component
   {
+
+    public Movement(Vector2 initialPosition) 
+    {
+        Position = initialPosition; 
+    }
+
     public Vector2 Position { get; set; }
 
     public Vector2 Rotation { get; set; }

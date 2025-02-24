@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Entity_Component_System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,19 +13,20 @@ public class Sprite : Component
 {
     public Texture2D spriteTexture;
     public string spriteName;
+    public Rectangle spriteRectangle; 
+    
 
-    public Sprite(Texture2D _texture2D)
+    public Sprite(Texture2D aTexture) 
     {
-        spriteTexture = _texture2D;
-    }
-
+        spriteTexture = aTexture;
+    }  
 
     public void GettingTexture(string name)
     {
-        //spriteTexture = Game1.Content.Load<Texture2D>(name);
+        //spriteTexture = Content.Load<Texture2D>(name);
     }   
         
-
+   
 
 }
 
