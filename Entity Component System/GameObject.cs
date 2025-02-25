@@ -11,8 +11,7 @@ using System.Threading.Tasks;
 
     public Vector2 GameObjectPosition;
 
-    public List<Component> objectComponents = new List<Component>();
-    //public List<T> objectComponents = new List<T>();
+    public List<Component> objectComponents = new List<Component>();    
 
 
     public void AddComponent(Component newComponent) 

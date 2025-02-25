@@ -25,10 +25,12 @@ namespace Entity_Component_System
         {
             // TODO: Add your initialization logic here
             _texture2D = new Texture2D(GraphicsDevice, 1, 1);
-            player = new GameObject();
+            player = new GameObject();            
+            playerPosition = new Movement(new Vector2(50, 50), new Vector2(100, 100));           
+            _texture2D = Content.Load<Texture2D>("Blowfish");
             playerSprite = new Sprite(_texture2D);
-            playerPosition = new Movement(new Vector2(50, 50));           
-            _texture2D = Content.Load<Texture2D>("Blowfish"); 
+
+
             player.AddComponent(playerSprite);
             player.AddComponent(playerPosition);
             
@@ -48,9 +50,12 @@ namespace Entity_Component_System
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            KeyboardState keyboardState = Keyboard.GetState();
+                      
 
-            base.Update(gameTime);
+            player.GetComponent<Movement>().UpdateInputSystem(gameTime); 
+
+                base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
@@ -59,8 +64,9 @@ namespace Entity_Component_System
 
             _spriteBatch.Begin();
 
-            //_spriteBatch.Draw(player.GetComponent<Sprite>().spriteTexture, player.GetComponent<Movement>().Position, Color.White);
-            _spriteBatch.Draw(_texture2D, new Vector2(50, 50), Color.White);
+            _spriteBatch.Draw(player.GetComponent<Sprite>().spriteTexture, new Rectangle((int)player.GetComponent<Movement>().Position.X, (int)player.GetComponent<Movement>().Position.Y,
+                              (int)player.GetComponent<Movement>().Scale.X,(int)player.GetComponent<Movement>().Scale.X), Color.White);
+            
 
             _spriteBatch.End();
 

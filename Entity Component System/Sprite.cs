@@ -26,7 +26,12 @@ public class Sprite : Component
         //spriteTexture = Content.Load<Texture2D>(name);
     }   
         
+    public Texture2D GettingTexture() {  return spriteTexture; }    
    
+    public void SetTexture(Texture2D aTexture) 
+    {
+        spriteTexture = aTexture;
+    }
 
 }
 
