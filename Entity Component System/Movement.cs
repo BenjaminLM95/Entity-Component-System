@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-
-
  public class Movement : Component
   {
 
@@ -29,19 +27,19 @@ using Microsoft.Xna.Framework.Input;
     {
         KeyboardState keyboardState = Keyboard.GetState();
 
-        if (keyboardState.IsKeyDown(Keys.A))
+        if (keyboardState.IsKeyDown(Keys.A) || keyboardState.IsKeyDown(Keys.Left))
         {
             Move(new Vector2(-1, 0));
         }
-        else if (keyboardState.IsKeyDown(Keys.D))
+        else if (keyboardState.IsKeyDown(Keys.D) || keyboardState.IsKeyDown(Keys.Right))
         {
             Move(new Vector2(1, 0));
         }
-        else if (keyboardState.IsKeyDown(Keys.W))
+        else if (keyboardState.IsKeyDown(Keys.W) || keyboardState.IsKeyDown(Keys.Up))
         {
             Move(new Vector2(0, -1));
         }
-        else if (keyboardState.IsKeyDown((Keys)Keys.S))
+        else if (keyboardState.IsKeyDown((Keys)Keys.S) || keyboardState.IsKeyDown(Keys.Down))
         {
             Move(new Vector2(0, 1));
         }

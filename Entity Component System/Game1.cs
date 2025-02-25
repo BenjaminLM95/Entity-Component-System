@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Entity_Component_System
 {
@@ -29,8 +28,6 @@ namespace Entity_Component_System
             playerPosition = new Movement(new Vector2(50, 50), new Vector2(100, 100));           
             _texture2D = Content.Load<Texture2D>("Blowfish");
             playerSprite = new Sprite(_texture2D);
-
-
             player.AddComponent(playerSprite);
             player.AddComponent(playerPosition);
             
